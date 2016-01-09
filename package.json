@@ -1,0 +1,16 @@
+{
+  "name": "spotify-reccomended",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Peter Lindhard",
+  "license": "none",
+  "dependencies": {
+    "express": "^4.13.3",
+    "unirest": "^0.4.2"
+  }
+}
