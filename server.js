@@ -70,7 +70,7 @@ app.get('/search/:name', function(req, res) {
         var search_related = get_related(item.artists.items[0]);
 
         search_related.on('items', function(items){
-            var total = 0, complete = 0, errors = 0;
+            var total = 0, complete = 0, errors = [];
             if(!items.artists){
                 this.emit('error', 404);
             }else{
@@ -83,13 +83,13 @@ app.get('/search/:name', function(req, res) {
                             current.tracks = items;
                             current.errors = errors;
                             complete++;
-                            if(total === complete + errors){
+                            if(total === complete + errors.length){
                                 res.json(item);
                                 }
                             }
                         )
                         .on('error', function(error){
-                            errors++;
+                            errors.push(error);
                         }
                     );
                 })
